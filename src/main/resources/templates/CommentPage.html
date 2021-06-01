@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Comments</title>
+</head>
+<body>
+<h1>Comments</h1>
+
+<form action="" th:action="@{/comment}" th:object="${newComment}" method="post">
+  <p>Author:</p>
+  <input type="number" th:field="*{authorID}">
+  <p>ReceiverUserID:</p>
+  <input type="text" th:field="*{userID}">
+  <p>Comment:</p>
+  <input type="text" th:field="*{text}">
+  <input type="submit">
+</form>
+
+
+<div th:each="comment:${commentList}">
+  <p th:text="${comment.authorID}"></p>
+  <p th:text="${comment.timeStamp}"></p>
+  <p th:text="${comment.text}"></p>
+  <p th:text="${comment.userID}"></p>
+</div>
+
+<div><a href="http://localhost:8080/">Back Home</a></div>
+
+</body>
+</html>
